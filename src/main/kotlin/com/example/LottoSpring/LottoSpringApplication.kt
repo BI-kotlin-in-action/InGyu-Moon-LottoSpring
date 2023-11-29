@@ -8,7 +8,4 @@ class LottoSpringApplication
 
 fun main(args: Array<String>) {
     runApplication<LottoSpringApplication>(*args)
-    /**
-     * test
-     */
 }

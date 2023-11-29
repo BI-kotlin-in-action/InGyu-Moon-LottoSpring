@@ -1,6 +1,7 @@
 package com.example.LottoSpring.service
 
 import com.example.LottoSpring.data.entity.LottoEntity
+import com.example.LottoSpring.data.entity.LottoEntity.Companion.createLotto
 import com.example.LottoSpring.domain.lotto.LottoGenerator.Companion.makeLottoTickets
 import com.example.LottoSpring.domain.lotto.LottoTickets
 import com.example.LottoSpring.repository.LottoRepository
@@ -15,7 +16,7 @@ class LottoService(private val lottoRepository: LottoRepository, private val mem
         val lottoTickets = makeLottoTickets(autoLottoNumber)
 
         for (lotto in lottoTickets.tickets) {
-            val createLotto = lottoEntity.createLotto(memberRepository.findById(memberId).get(), lotto)
+            val createLotto = createLotto(memberRepository.findById(memberId).get(), lotto)
             lottoRepository.save(createLotto)
         }
         return lottoTickets
@@ -24,7 +25,8 @@ class LottoService(private val lottoRepository: LottoRepository, private val mem
         val lottoEntity = LottoEntity()
 
         for (lotto in lottoTickets.tickets) {
-            val createLotto = lottoEntity.createLotto(memberRepository.findById(memberId).get(), lotto)
+            // TODO: 로또 숫자 범위 검사
+            val createLotto = createLotto(memberRepository.findById(memberId).get(), lotto)
             lottoRepository.save(createLotto)
         }
 

@@ -46,16 +46,18 @@ class LottoEntity {
         member.lottoTickets.add(this)
     }
 
-    fun createLotto(member: MemberEntity, lottoTicket: Lotto): LottoEntity {
-        val lottoEntity = LottoEntity()
-        lottoEntity.number1 = lottoTicket.numbers.elementAt(0)
-        lottoEntity.number2 = lottoTicket.numbers.elementAt(1)
-        lottoEntity.number3 = lottoTicket.numbers.elementAt(2)
-        lottoEntity.number4 = lottoTicket.numbers.elementAt(3)
-        lottoEntity.number5 = lottoTicket.numbers.elementAt(4)
-        lottoEntity.number6 = lottoTicket.numbers.elementAt(5)
+    companion object {
+        fun createLotto(member: MemberEntity, lottoTicket: Lotto): LottoEntity {
+            val lottoEntity = LottoEntity()
+            lottoEntity.number1 = lottoTicket.numbers.elementAt(0)
+            lottoEntity.number2 = lottoTicket.numbers.elementAt(1)
+            lottoEntity.number3 = lottoTicket.numbers.elementAt(2)
+            lottoEntity.number4 = lottoTicket.numbers.elementAt(3)
+            lottoEntity.number5 = lottoTicket.numbers.elementAt(4)
+            lottoEntity.number6 = lottoTicket.numbers.elementAt(5)
 
-        lottoEntity.setMemberEntity(member)
-        return lottoEntity
+            lottoEntity.setMemberEntity(member)
+            return lottoEntity
+        }
     }
 }

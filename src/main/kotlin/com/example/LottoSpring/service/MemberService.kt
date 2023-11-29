@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service
 @Service
 class MemberService(private val memberRepository: MemberRepository) {
     fun saveNewMember(memberDto: MemberDto): MemberDto {
-        var member = MemberEntity()
+        val member = MemberEntity()
         member.memberEmail = memberDto.memberEmail
         member.password = memberDto.password
         member.nickname = memberDto.nickname
